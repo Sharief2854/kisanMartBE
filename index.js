@@ -5,6 +5,7 @@ let customerRoutes=require('./routes/customerRoutes');
 let adminRoutes = require('./routes/adminRoutes');
 let productRoutes = require('./routes/productRoutes');
 let cartRoutes = require('./routes/cartRoutes');
+const paymentRoutes = require("./routes/paymentRoutes");
 
 
 
@@ -20,6 +21,7 @@ app.use("/customer",customerRoutes);
 app.use("/admin", adminRoutes);
 app.use("/product", productRoutes );
 app.use("/cart", cartRoutes);
+app.use("/payment", paymentRoutes);
 
 
 

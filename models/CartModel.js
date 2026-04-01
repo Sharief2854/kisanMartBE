@@ -5,7 +5,11 @@ let cartSchema=new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref:"Product"
     },
-    count:Number
+    count:Number,
+    userId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"User"
+    }
 })
 
 let CartModel = mongoose.model("Cart", cartSchema);

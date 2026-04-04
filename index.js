@@ -6,6 +6,8 @@ let adminRoutes = require('./routes/adminRoutes');
 let productRoutes = require('./routes/productRoutes');
 let cartRoutes = require('./routes/cartRoutes');
 const paymentRoutes = require("./routes/paymentRoutes");
+const orderRoutes = require("./routes/orderRoutes");
+
 
 
 
@@ -22,6 +24,8 @@ app.use("/admin", adminRoutes);
 app.use("/product", productRoutes );
 app.use("/cart", cartRoutes);
 app.use("/payment", paymentRoutes);
+app.use("/orders", orderRoutes);
+
 
 
 

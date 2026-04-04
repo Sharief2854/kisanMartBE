@@ -1,10 +1,17 @@
 let express = require("express");
 const CartModel = require("../models/CartModel");
 const { customerAuth } = require("../middlewares/auth");
+const ProductModel = require("../models/ProductModel");
 let router=express.Router();
 
 router.post("/add",customerAuth,async (req,res)=>{
     let data=req.body;
+    let product=await ProductModel.findOne({_id:data.productId});
+    if (product.quantity == 0){
+        res.send("outof stock");
+        return;
+    }
+
     data.userId=req.userId;
     let cartData=await CartModel.find(data);
     console.log(cartData);
@@ -28,6 +35,7 @@ router.post("/count",async (req,res)=>{
     let count=result.count;
 
     if(data.operation=="dec"){
+    
         count--;
     }
     else{
@@ -43,4 +51,9 @@ router.delete("/delete/:id",async (req,res)=>{
     await CartModel.deleteOne({_id:id});
     res.send("deleted");
 });
+
+// router.delete("/deleteAll", async (req, res) => {
+//     await CartModel.deleteMany();
+//     res.send("deleted");
+// });
 module.exports = router;

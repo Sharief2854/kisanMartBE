@@ -26,7 +26,25 @@ let ordersSchema=new mongoose.Schema({
     date:{
         type:Date,
         default:Date.now()
+    },
+    isAccepted:{
+        type:Boolean,
+        default:false
+    },
+    isCanceled: {
+        type: Boolean,
+        default: false
+    },
+    isShipped: {
+        type: Boolean,
+        default: false
+    },
+    isDelivered: {
+        type: Boolean,
+        default: false
     }
+
+
 })
 
 let OrdersModel = mongoose.model("Orders", ordersSchema);

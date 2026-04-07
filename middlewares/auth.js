@@ -15,7 +15,7 @@ async function adminAuth(req,res,next){
                 message:"not authorized!!"
             })
         }
-        
+        // console.log("bye")
         next();
     }
     catch (err) {

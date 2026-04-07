@@ -36,5 +36,14 @@ router.get("/getAll", adminAuth, async (req, res) => {
     res.json(result);
 });
 
+router.put("/update/:id", adminAuth, async (req, res) => {
+    // console.log("hii")
+    let data=req.body;// isAccepted:true
+    console.log(data);
+
+    let result = await OrdersModel.findOneAndUpdate({_id:req.params.id},{...data});
+    console.log(result);
+    res.json(result);
+});
 
 module.exports = router;
